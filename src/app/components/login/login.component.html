@@ -1,0 +1,10 @@
+<form [formGroup]="loginForm">
+
+    <input id="username" class="text-input" type="text" name="text" required minlength="1"
+    placeholder="Code client" formControlName="username">
+
+    <input id="password" class="text-input" type="password" name="password" required minlength="1"
+    placeholder="Mot de passe" formControlName="password">
+
+    <button mat-raised-button color="primary" (click)="login()">Login</button>
+</form>
