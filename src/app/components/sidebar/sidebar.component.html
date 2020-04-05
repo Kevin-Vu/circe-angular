@@ -1,0 +1,53 @@
+<mat-sidenav-container>
+  <mat-sidenav #appDrawer mode="side" opened="true">
+    <div mat-list-item class="sidenav-head">
+      <div>
+        <img height="50" width="50" src="/assets/logo.png">
+      </div>
+      <div class="sidenav-item">
+        CIRCE
+      </div>
+    </div>
+
+    <mat-nav-list style="margin-top: 50px">
+    
+      <a mat-list-item class="sidenav-menu-item" [ngStyle]="{ 'background-color' : matListItemClicked === 0 ? '#2565AE' : 'transparent'}" (click)="goToMatItem(0)">
+        <mat-icon class="routeIcon">dashboard</mat-icon>
+        Dashboard
+      </a>
+
+      <a mat-list-item class="sidenav-menu-item" [ngStyle]="{ 'background-color' : matListItemClicked === 1 ? '#2565AE' : 'transparent'}" (click)="goToMatItem(1)">
+        <mat-icon class="routeIcon">receipt</mat-icon>
+        Factures
+      </a>
+
+      <a mat-list-item class="sidenav-menu-item" [ngStyle]="{ 'background-color' : matListItemClicked === 2 ? '#2565AE' : 'transparent'}" (click)="goToMatItem(2)">
+        <mat-icon class="routeIcon">folder</mat-icon>
+        Fichiers
+      </a>
+
+      <a mat-list-item class="sidenav-menu-item" [ngStyle]="{ 'background-color' : matListItemClicked === 3 ? '#2565AE' : 'transparent'}" (click)="goToMatItem(3)">
+        <mat-icon class="routeIcon">event</mat-icon>
+        Calendrier
+      </a>
+    </mat-nav-list>
+
+    <mat-toolbar>
+      <mat-toolbar-row style="background-color: rgb(0, 22, 44); height: 4px;">
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <div style="display: flex; flex-direction: row;">
+          <img style="cursor: pointer" src="https://material.angular.io/assets/img/examples/shiba1.jpg">  
+          <div style="margin-left: 12px;">Aude PALMIER</div>
+        </div>
+        <div>
+          <mat-icon title="Settings" style="cursor: pointer; margin-right: 16px;">email</mat-icon>
+          <mat-icon title="Settings" style="cursor: pointer; margin-right: 16px;">settings</mat-icon>
+          <mat-icon title="Disconnect" style="cursor: pointer;" (click)="logout()">exit_to_app</mat-icon>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

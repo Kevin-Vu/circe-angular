@@ -1,0 +1,8 @@
+{
+    "LOGIN" : {
+        "BUTTON_LOGIN" : "Login",
+        "INPUT_USERNAME" : "Client code",
+        "INPUT_PASSWORD" : "Password",
+        "ID" : "ID"
+    }
+}

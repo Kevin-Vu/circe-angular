@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+    font-family: Roboto-Condensed-Regular;
+    font-weight: 400;
+    src: url("assets/fonts/RobotoCondensed-Regular.ttf");
+  }
+@font-face {
+    font-family: Roboto-Condensed-Bold;
+    font-weight: 700;
+    src: url("assets/fonts/RobotoCondensed-Bold.ttf");
+}
+@font-face {
+  font-family: Open-Sans-Regular;
+  src: url("assets/fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: Open-Sans-Light;
+  src: url("assets/fonts/OpenSans-Light.ttf");
+}
+@font-face {
+  font-family: Open-Sans-Bold;
+  src: url("assets/fonts/OpenSans-Bold.ttf");
+}
