@@ -31,6 +31,11 @@ export class ClientService {
     return this.http.get<Client>(environment.BACKEND_URL + '/api/auth/client', { params : param });
   }
 
+  getCurrentClient(): Observable<Client> {
+    return this.http.get<Client>(environment.BACKEND_URL + '/api/auth/client/current')
+    .pipe(catchError((err: any, caught: Observable<Client>) => of(null)));
+  }
+
   /**
    * Get client BehaviorSubject
    */

@@ -8,9 +8,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CustomHttpInterceptor } from './interceptors/custom-http-interceptor';
 
 
 @NgModule({
@@ -26,13 +28,21 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HttpClientXsrfModule.withOptions({cookieName: 'XSRF-TOKEN', headerName: 'X-XSRF-TOKEN'}),
+
     MatButtonModule
 
   ],
   exports: [
     MatButtonModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    {provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true},
+
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

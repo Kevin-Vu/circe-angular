@@ -1,28 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Client } from 'src/app/interfaces/client';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private observableClient: BehaviorSubject<Client>;
-  public currentClient: Observable<Client>;
-
-  constructor(private http: HttpClient) {
-    this.observableClient = new BehaviorSubject<Client>(JSON.parse(localStorage.getItem('currentClient')));
-    this.currentClient = this.observableClient.asObservable();
-  }
 
 
-  public get currentClientValue(): Client {
-    return this.observableClient.value;
-  }
-
+  constructor(private http: HttpClient) {}
 
   /**
    * Login
@@ -41,9 +30,7 @@ export class AuthenticationService {
    * Logout
    */
   logout(): Observable<any> {
-    localStorage.removeItem('currentClient');
-    this.observableClient.next(null);
-    return this.http.post<any>(environment.BACKEND_URL + '/api/auth/logout', null);
+    return this.http.post<any>(environment.BACKEND_URL + '/api/logout', null);
   }
 
 }

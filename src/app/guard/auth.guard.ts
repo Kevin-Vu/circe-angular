@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication/authentication.service';
+import { Observable, of } from 'rxjs';
+import { ClientService } from '../services/client/client.service';
+import { take, mergeMap } from 'rxjs/operators';
+import { Client } from '../interfaces/client';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +11,22 @@ import { AuthenticationService } from '../services/authentication/authentication
 export class AuthGuard implements CanActivate {
 
   constructor(private router: Router,
-              private authenticationService: AuthenticationService){}
+              readonly clientService: ClientService){}
 
-  canActivate(){
-    const currentClient = this.authenticationService.currentClientValue;
-    if (currentClient) {
-      return true;
-    }
+  canActivate(): Observable<boolean> {
+    return this.clientService.getCurrentClient().pipe(
+      take(1),
+      mergeMap((client: Client) => {
 
-    this.router.navigateByUrl('login');
-    return false;
+        if (client) {
+          return of(true);
+
+        } else {
+          this.router.navigateByUrl('/login');
+          return of(false);
+        }
+      })
+    );
   }
 
 }

@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]]
     });
 
+    this.router.navigateByUrl('/dashboard');
+
   }
 
   login(): void {
@@ -49,7 +51,7 @@ export class LoginComponent implements OnInit {
       (client: Client) => {
         localStorage.setItem('currentUser', JSON.stringify(client));
         this.clientService.setClient(client);
-        this.router.navigateByUrl('dashboard');
+        this.router.navigateByUrl('/dashboard');
       },
       err => console.log(err)
     );
