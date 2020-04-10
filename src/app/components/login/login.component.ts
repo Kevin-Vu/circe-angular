@@ -5,6 +5,7 @@ import { ValidationService } from 'src/app/services/validation/validation.servic
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { ClientService } from 'src/app/services/client/client.service';
 import { Client } from 'src/app/interfaces/client';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     public loginFormBuilder: FormBuilder,
     public authenticationService: AuthenticationService,
-    public clientService: ClientService
-
+    public clientService: ClientService,
+    private translate: TranslateService
     ) { }
 
   ngOnInit(): void {

@@ -1,0 +1,8 @@
+{
+    "LOGIN" : {
+        "BUTTON_LOGIN" : "Connexion",
+        "INPUT_USERNAME" : "Code client",
+        "INPUT_PASSWORD" : "Mot de passe",
+        "ID" : "Identifiants"
+    }
+}
