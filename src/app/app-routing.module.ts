@@ -12,10 +12,10 @@ const routes: Routes = [
       redirectTo: 'login',
   },
   {
-      path      : 'dashboard',
-      component : DashboardComponent,
-      canActivate: [AuthGuard]
-
+    path: '',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+    import('./components/sidebar/sidebar.module').then(m => m.SidebarModule)
   },
   {
       path      : 'login',
