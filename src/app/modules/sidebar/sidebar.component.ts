@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
-import { ClientService } from 'src/app/services/client/client.service';
-import { Router } from '@angular/router';
+import { AuthTokenStorageService } from 'src/app/core/authentication/auth-token-storage.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,9 +11,7 @@ export class SidebarComponent implements OnInit {
   matListItemClicked: number;
 
   constructor(
-    private authenticationService: AuthenticationService,
-    private clientService: ClientService,
-    private router: Router) {
+    private authenticationService: AuthTokenStorageService) {
       this.matListItemClicked = 0;
   }
 
@@ -26,13 +22,19 @@ export class SidebarComponent implements OnInit {
     this.matListItemClicked = index;
   }
 
-  logout(): void {
+  /*logout(): void {
     this.authenticationService.logout().subscribe(
       _ => {
         this.clientService.setClient(null);
         this.router.navigateByUrl('login');
       }
     );
-  }
+  }*/
 
+  /**
+   * Logout
+   */
+  logout(): void {
+    this.authenticationService.deconnexion();
+  }
 }

@@ -10,6 +10,9 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
+        data: {
+          expectedRole: ['RIGHT_ADMIN'],
+        },
         children: [
           {
             path: '',
