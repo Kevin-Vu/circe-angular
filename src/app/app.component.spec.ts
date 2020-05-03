@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'okayo-facture-front'`, () => {
+  it(`should have as title 'circe-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('okayo-facture-front');
+    expect(app.title).toEqual('circe-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('okayo-facture-front app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('circe-angular app is running!');
   });
 });

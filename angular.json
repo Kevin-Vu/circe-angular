@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "okayo-facture-front": {
+    "circe-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/okayo-facture-front",
+            "outputPath": "dist/circe-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "okayo-facture-front:build"
+            "browserTarget": "circe-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "okayo-facture-front:build:production"
+              "browserTarget": "circe-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "okayo-facture-front:build"
+            "browserTarget": "circe-angular:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "okayo-facture-front:serve"
+            "devServerTarget": "circe-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "okayo-facture-front:serve:production"
+              "devServerTarget": "circe-angular:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "okayo-facture-front"
+  "defaultProject": "circe-angular"
 }

@@ -7,7 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'okayo-facture-front';
+  title = 'circe-angular';
 
   constructor(public translate: TranslateService){
     translate.addLangs(['en', 'fr']);
