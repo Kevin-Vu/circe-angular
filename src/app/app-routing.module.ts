@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './guard/auth.guard';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './core/guard/auth.guard';
+import { LoginComponent } from './modules/login/login.component';
+
 
 
 const routes: Routes = [
@@ -14,8 +14,11 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
+    data: {
+      expectedRole: ['RIGHT_ADMIN'],
+    },
     loadChildren: () =>
-    import('./components/sidebar/sidebar.module').then(m => m.SidebarModule)
+    import('./modules/sidebar/sidebar.module').then(m => m.SidebarModule)
   },
   {
       path      : 'login',
