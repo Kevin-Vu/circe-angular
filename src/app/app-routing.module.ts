@@ -14,6 +14,9 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
+    data: {
+      expectedRole: ['RIGHT_ADMIN'],
+    },
     loadChildren: () =>
     import('./modules/sidebar/sidebar.module').then(m => m.SidebarModule)
   },

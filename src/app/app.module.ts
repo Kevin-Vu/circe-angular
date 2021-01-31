@@ -18,6 +18,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AuthGuard } from './core/guard/auth.guard';
 import { CustomHttpInterceptor } from './core/interceptors/custom-http-interceptor';
 import { LoginComponent } from './modules/login/login.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -35,7 +37,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpClientXsrfModule.withOptions({cookieName: 'XSRF-TOKEN', headerName: 'X-XSRF-TOKEN'}),
+   // HttpClientXsrfModule.withOptions({cookieName: 'XSRF-TOKEN', headerName: 'X-XSRF-TOKEN'}),
 
     TranslateModule.forRoot({
       loader: {
@@ -47,7 +49,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
     MatButtonModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
 
   ],
   exports: [
@@ -55,7 +58,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [
     AuthGuard,
-    {provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
 
     {provide: LocationStrategy, useClass: HashLocationStrategy},
 

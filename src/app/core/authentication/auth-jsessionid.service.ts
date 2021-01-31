@@ -8,7 +8,7 @@ import { Client } from 'src/app/shared/interfaces/client';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthJSessionIdService {
 
 
 

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { TranslateService } from '@ngx-translate/core';
-import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
+import { AuthTokenStorageService } from 'src/app/core/authentication/auth-token-storage.service';
+import { AuthService } from 'src/app/core/authentication/auth.service';
 import { ClientService } from 'src/app/core/services/client/client.service';
+import { ErrorService } from 'src/app/core/services/error/error.service';
 import { ValidationService } from 'src/app/core/services/validation/validation.service';
-import { Client } from 'src/app/shared/interfaces/client';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +19,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     public loginFormBuilder: FormBuilder,
-    public authenticationService: AuthenticationService,
+    public authenticationService: AuthService,
     public clientService: ClientService,
-    private translate: TranslateService
+    private errorService: ErrorService,
+    private stockageToken: AuthTokenStorageService
     ) { }
 
   ngOnInit(): void {
@@ -40,24 +40,42 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('tabs/dashboard');
   }
 
+  // login(): void {
+  //   if (this.loginForm.valid) {
+  //     this.authenticationService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
+  //       _ => this.setCurrentClient(),
+  //       err => console.log(err)
+  //     );
+  //   }
+  // }
+
+  /**
+   * Login
+   */
   login(): void {
     if (this.loginForm.valid) {
       this.authenticationService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
-        _ => this.setCurrentClient(),
-        err => console.log(err)
+        data => {
+          this.stockageToken.saveToken(data.token);
+          this.stockageToken.saveLoginUtilisateur(data.login);
+          this.stockageToken.saveRoles(data.roles);
+          this.stockageToken.saveJWTExpirationTime();
+          this.router.navigate(['tabs/dashboard']);
+        },
+        err => this.errorService.handleError(err)
       );
     }
   }
 
-  setCurrentClient(): void {
-    this.clientService.getClientBack(this.loginForm.value.username).subscribe(
-      (client: Client) => {
-        localStorage.setItem('currentUser', JSON.stringify(client));
-        this.clientService.setClient(client);
-        this.router.navigateByUrl('tabs/dashboard');
-      },
-      err => console.log(err)
-    );
-  }
+  // setCurrentClient(): void {
+  //   this.clientService.getClientBack(this.loginForm.value.username).subscribe(
+  //     (client: Client) => {
+  //       localStorage.setItem('currentUser', JSON.stringify(client));
+  //       this.clientService.setClient(client);
+  //       this.router.navigateByUrl('tabs/dashboard');
+  //     },
+  //     err => console.log(err)
+  //   );
+  // }
 
 }
