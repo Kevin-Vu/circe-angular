@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
-import { ClientService } from 'src/app/services/client/client.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
+import { ClientService } from 'src/app/core/services/client/client.service';
 
 @Component({
   selector: 'app-sidebar',

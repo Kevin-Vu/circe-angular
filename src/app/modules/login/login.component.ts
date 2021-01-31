@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ValidationService } from 'src/app/services/validation/validation.service';
-import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
-import { ClientService } from 'src/app/services/client/client.service';
-import { Client } from 'src/app/interfaces/client';
+
 import { TranslateService } from '@ngx-translate/core';
+import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
+import { ClientService } from 'src/app/core/services/client/client.service';
+import { ValidationService } from 'src/app/core/services/validation/validation.service';
+import { Client } from 'src/app/shared/interfaces/client';
 
 @Component({
   selector: 'app-login',

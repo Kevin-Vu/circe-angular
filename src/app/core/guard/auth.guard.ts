@@ -3,7 +3,8 @@ import { CanActivate, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { ClientService } from '../services/client/client.service';
 import { take, mergeMap } from 'rxjs/operators';
-import { Client } from '../interfaces/client';
+import { Client } from 'src/app/shared/interfaces/client';
+
 
 @Injectable({
   providedIn: 'root'

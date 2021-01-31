@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { Client } from 'src/app/interfaces/client';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { share, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Client } from 'src/app/shared/interfaces/client';
 
 @Injectable({
   providedIn: 'root'
