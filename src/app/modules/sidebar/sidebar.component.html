@@ -12,23 +12,39 @@
     <mat-nav-list style="margin-top: 50px">
     
       <a mat-list-item class="sidenav-menu-item" [ngStyle]="{ 'background-color' : matListItemClicked === 0 ? '#2565AE' : 'transparent'}" (click)="goToMatItem(0)">
-        <mat-icon class="routeIcon">dashboard</mat-icon>
-        Dashboard
+        <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+          <mat-icon class="routeIcon">dashboard</mat-icon>
+          <div style="color:white; margin-left: 16px;">
+            Dashboard
+          </div>
+        </div>
       </a>
 
       <a mat-list-item class="sidenav-menu-item" [ngStyle]="{ 'background-color' : matListItemClicked === 1 ? '#2565AE' : 'transparent'}" (click)="goToMatItem(1)">
-        <mat-icon class="routeIcon">receipt</mat-icon>
-        Factures
+        <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+          <mat-icon class="routeIcon">receipt</mat-icon>
+          <div style="color:white; margin-left: 16px;">
+            Factures         
+          </div>
+        </div>
       </a>
 
       <a mat-list-item class="sidenav-menu-item" [ngStyle]="{ 'background-color' : matListItemClicked === 2 ? '#2565AE' : 'transparent'}" (click)="goToMatItem(2)">
-        <mat-icon class="routeIcon">folder</mat-icon>
-        Fichiers
+        <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+          <mat-icon class="routeIcon">folder</mat-icon>
+          <div style="color:white; margin-left: 16px;">
+            Fichiers         
+          </div>
+        </div>
       </a>
 
       <a mat-list-item class="sidenav-menu-item" [ngStyle]="{ 'background-color' : matListItemClicked === 3 ? '#2565AE' : 'transparent'}" (click)="goToMatItem(3)">
-        <mat-icon class="routeIcon">event</mat-icon>
-        Calendrier
+        <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+          <mat-icon class="routeIcon">event</mat-icon>
+          <div style="color:white; margin-left: 16px;">
+            Calendrier         
+          </div>
+        </div>        
       </a>
     </mat-nav-list>
 
