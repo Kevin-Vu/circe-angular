@@ -28,9 +28,19 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/grapesjs/dist/css/grapes.min.css",
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.bubble.css",
+              "./node_modules/quill/dist/quill.snow.css",
+              "./node_modules/quill-emoji/dist/quill-emoji.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/grapesjs/dist/grapes.min.js",
+              "./node_modules/grapesjs-mjml/dist/index.js",
+              "./node_modules/grapesjs-preset-newsletter/dist/index.js",
+              "./node_modules/grapesjs-plugin-ckeditor/dist/index.js"
+            ],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,

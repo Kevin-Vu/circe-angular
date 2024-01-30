@@ -20,6 +20,7 @@ import { CustomHttpInterceptor } from './core/interceptors/custom-http-intercept
 import { LoginComponent } from './modules/login/login.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { QuillModule } from 'ngx-quill'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -50,8 +51,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatSnackBarModule
-
+    MatSnackBarModule,
+    QuillModule.forRoot()
   ],
   exports: [
     MatButtonModule

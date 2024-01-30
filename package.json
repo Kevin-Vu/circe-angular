@@ -23,9 +23,18 @@
     "@angular/router": "^14.2.12",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "@types/quill": "^1.3.10",
+    "gjs-quill": "^1.0.1",
+    "grapesjs": "^0.21.5",
+    "grapesjs-mjml": "^1.0.5",
+    "grapesjs-plugin-ckeditor": "^1.0.1",
+    "grapesjs-preset-newsletter": "^1.0.1",
     "moment": "^2.29.1",
     "ngx-moment": "^5.0.0",
-    "rxjs": "~6.6.0",
+    "ngx-quill": "^20.0.1",
+    "quill": "^1.3.7",
+    "quill-emoji": "^0.2.0",
+    "rxjs": "~7.8.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
@@ -46,6 +55,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.6.4"
+    "typescript": "^4.8.4"
   }
 }
