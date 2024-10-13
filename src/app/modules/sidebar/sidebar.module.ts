@@ -12,17 +12,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [
-    SidebarComponent
-  ],
-  imports: [
-    CommonModule,
-    SidebarRoutingModule,
-    MatListModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatCardModule
-  ]
+    imports: [
+        CommonModule,
+        SidebarRoutingModule,
+        MatListModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatCardModule,
+        SidebarComponent
+    ]
 })
 export class SidebarModule { }

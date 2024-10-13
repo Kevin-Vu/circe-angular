@@ -4,8 +4,7 @@ import { AuthGuard } from './core/guard/auth.guard';
 import { LoginComponent } from './modules/login/login.component';
 
 
-
-const routes: Routes = [
+export const APP_ROUTES: Routes = [
   {
       path      : '',
       pathMatch : 'full',
@@ -17,8 +16,8 @@ const routes: Routes = [
     data: {
       expectedRole: ['RIGHT_ADMIN'],
     },
-    loadChildren: () =>
-    import('./modules/sidebar/sidebar.module').then(m => m.SidebarModule)
+    loadComponent: () =>
+    import('./modules/sidebar/sidebar.component').then(m => m.SideBarComponent)
   },
   {
       path      : 'login',
@@ -27,8 +26,3 @@ const routes: Routes = [
 
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
