@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthTokenStorageService } from 'src/app/core/authentication/auth-token-storage.service';
 import { AuthService } from 'src/app/core/authentication/auth.service';
 import { ClientService } from 'src/app/core/services/client/client.service';
 import { ErrorService } from 'src/app/core/services/error/error.service';
 import { ValidationService } from 'src/app/core/services/validation/validation.service';
+import { MatCard, MatCardTitle, MatCardContent } from '@angular/material/card';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    standalone: true,
+    imports: [MatCard, MatCardTitle, MatCardContent, FormsModule, ReactiveFormsModule, MatFormField, MatInput, MatButton, TranslateModule]
 })
 export class LoginComponent implements OnInit {
 
